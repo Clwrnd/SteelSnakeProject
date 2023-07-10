@@ -22,8 +22,8 @@ Exigences :
   -	Fermeture momentannée d'arrêt/ligne
   -	Signalement d'évenement
   -	Enregistrement des données horaires.
-  -	Affectation de différents type de tram
-  -	Données statistique sur le réseaux 
+  -	Affectation de différents types de tram
+  -	Données statistiques sur les réseaux 
 
 Cette liste est bien évidemment non exhaustive et peut être soumise à toute modification et/ou ajout.
 
