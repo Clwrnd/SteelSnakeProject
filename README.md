@@ -18,6 +18,12 @@ Exigences :
   -	Ouverture d’un projet déjà existant
   -	Fermeture de l’application
   -	Impression de la carte finale en PDF
+  -	Adaptation des informations après des modifications
+  -	Fermeture momentannée d'arrêt/ligne
+  -	Signalement d'évenement
+  -	Enregistrement des données horaires.
+  -	Affectation de différents type de tram
+  -	Données statistique sur le réseaux 
 
 Cette liste est bien évidemment non exhaustive et peut être soumise à toute modification et/ou ajout.
 
