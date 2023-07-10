@@ -7,7 +7,7 @@ Exigences :
   -	Création arrêts de trams avec symbole et nom associé
   -	Ajout d'un tram avec ses caractéristiques
   -	Déplacement d’une ligne et arrêt de tram
-  -	Suppression d’une ligne et arrêt de tram
+  -	Suppression d’une ligne, arrêt de tram et tram
   -	Annulation de la dernière modification
   -	Zoom
   -	Dézoom
@@ -22,7 +22,7 @@ Exigences :
   -	Adaptation des informations après des modifications
   -	Fermeture momentannée d'arrêt/ligne
   -	Signalement d'évenement
-  -	Enregistrement des données horaires.
+  -	Enregistrement des données horaires
   -	Affectation de différents types de tram
   -	Données statistiques sur les réseaux 
 
