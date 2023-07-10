@@ -5,6 +5,7 @@ Objectifs : Réaliser une application permettant la création et la gestion d'un
 Exigences : 
   -	Création lignes de trams avec lettre associée
   -	Création arrêts de trams avec symbole et nom associé
+  -	Ajout d'un tram avec ses caractéristiques
   -	Déplacement d’une ligne et arrêt de tram
   -	Suppression d’une ligne et arrêt de tram
   -	Annulation de la dernière modification
