@@ -50,6 +50,7 @@ public class InterfaceBody extends BorderPane{
         menuBar.getMenus().addAll(fichier,aide);
         this.setTop(menuBar);
         
+        this.getStylesheets().add("file:src/main/java/fr/idmont/candw/serpentdeferproject/Style.css");
     }
 
     
