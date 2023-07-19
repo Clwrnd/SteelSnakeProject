@@ -42,6 +42,10 @@ public class Controller {
          lien.getHostServices().showDocument("https://www.cts-strasbourg.eu/de/");
     }
 
+    void quitter(Stage stage) {
+        stage.close();
+    }
+
 
 
     

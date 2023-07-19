@@ -33,6 +33,7 @@ public class InterfaceBody extends BorderPane{
     MenuItem enregistrer ;
     MenuItem enregistrersous ;
     MenuItem fermer ;
+    MenuItem quitter;
     MenuItem aproposde ;
     MenuItem siteCTS ;
     BorderPane centerPane ;
@@ -71,7 +72,8 @@ public class InterfaceBody extends BorderPane{
         this.enregistrer = new MenuItem("Enregistrer");
         this.enregistrersous = new MenuItem("Enregistrer sous");
         this.fermer = new MenuItem("Fermer");
-        this.fichier.getItems().addAll(nouveau,ouvrir,enregistrer,enregistrersous,fermer);
+        this.quitter = new MenuItem("Quitter");
+        this.fichier.getItems().addAll(nouveau,ouvrir,enregistrer,enregistrersous,fermer,quitter);
         
         this.aproposde = new MenuItem("A propos de...");
         this.siteCTS = new MenuItem("Site CTS");
@@ -161,6 +163,11 @@ public class InterfaceBody extends BorderPane{
         this.siteCTS.setOnAction(e->{
             this.controller.siteCTS(e);
         });
+        
+        this.quitter.setOnAction(e->{
+            this.controller.quitter(stage);
+        });
+        
     }
 
     
