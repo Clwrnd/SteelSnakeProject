@@ -28,6 +28,7 @@ public class InterfaceBody extends BorderPane{
     MenuItem aproposde ;
     MenuItem siteCTS ;
     Separator sepAide ;
+    Controller controller;
     
     public InterfaceBody (Stage stage){
         
@@ -51,6 +52,46 @@ public class InterfaceBody extends BorderPane{
         this.setTop(menuBar);
         
         this.getStylesheets().add("file:src/main/java/fr/idmont/candw/serpentdeferproject/Style.css");
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        this.controller= new Controller(this);
+        
+        this.nouveau.setOnAction(e->{
+            this.controller.nouveau(e);
+        });
+        
+        this.fermer.setOnAction(e->{
+            this.controller.fermer(e);
+        });
+        
+        this.ouvrir.setOnAction(e->{
+            this.controller.ouvrir(e);
+        });
+        
+        this.enregistrer.setOnAction(e->{
+            this.controller.enregistrer(e);
+        });
+        
+        this.enregistrersous.setOnAction(e->{
+            this.controller.enregistrersous(e);
+        });
+        
+        this.aproposde.setOnAction(e->{
+            this.controller.aproposde(e);
+        });
+        
+        this.siteCTS.setOnAction(e->{
+            this.controller.siteCTS(e);
+        });
     }
 
     
