@@ -4,11 +4,18 @@
  */
 package fr.idmont.candw.serpentdeferproject;
 
+import javafx.geometry.Orientation;
+import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.Separator;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.SplitPane;
+import javafx.scene.control.ToolBar;
+import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
 /**
@@ -17,6 +24,7 @@ import javafx.stage.Stage;
  */
 public class InterfaceBody extends BorderPane{
     
+    Controller controller ;
     MenuBar menuBar ;
     Menu fichier ;
     Menu aide ;
@@ -27,8 +35,31 @@ public class InterfaceBody extends BorderPane{
     MenuItem fermer ;
     MenuItem aproposde ;
     MenuItem siteCTS ;
-    Separator sepAide ;
-    Controller controller;
+    BorderPane centerPane ;
+    SplitPane horizontalSplitPane ;
+    SplitPane verticalSplitPane ;
+    FlowPane leftTopPane ;
+    ScrollPane leftBottomPane ;
+    TreeView treeView ;
+    TreeItem recap ;
+    TreeItem ligneA ; //exemple
+    TreeItem ligneB ; //exemple
+    TreeItem arret1A ; //exemple
+    TreeItem arret2A ; //exemple
+    TreeItem arret1B ; //exemple
+    TreeItem arret2B ; //exemple
+    ToolBar toolBar ;
+    Button reseau ;
+    Button ligne ;
+    Button arret ;
+    Button tram ;
+    Button selectionner ;
+    Button deplacer ;
+    Button retourarriere ;
+    Button retouravant ;
+    Button dezoom ;
+    Button zoom ;
+    Button supprimer ;
     
     public InterfaceBody (Stage stage){
         
@@ -40,23 +71,61 @@ public class InterfaceBody extends BorderPane{
         this.enregistrer = new MenuItem("Enregistrer");
         this.enregistrersous = new MenuItem("Enregistrer sous");
         this.fermer = new MenuItem("Fermer");
-        fichier.getItems().addAll(nouveau,ouvrir,enregistrer,enregistrersous,fermer);
+        this.fichier.getItems().addAll(nouveau,ouvrir,enregistrer,enregistrersous,fermer);
         
         this.aproposde = new MenuItem("A propos de...");
         this.siteCTS = new MenuItem("Site CTS");
-        this.sepAide = new Separator();
-        aide.getItems().addAll(aproposde,siteCTS);
+        this.aide.getItems().addAll(aproposde,siteCTS);
         
         this.menuBar = new MenuBar();
-        menuBar.getMenus().addAll(fichier,aide);
+        this.menuBar.getMenus().addAll(fichier,aide);
         this.setTop(menuBar);
         
+        //Création du Pane en haut à gauche avec récap des lignes et arrêts
+        this.recap = new TreeItem();
+        
+        this.treeView = new TreeView(recap);
+        this.treeView.setShowRoot(false);
+        
+        this.ligneA = new TreeItem("Ligne A"); //non définitif
+        this.ligneB = new TreeItem("Ligne B");
+        this.arret1A = new TreeItem("Arrêt 1A");
+        this.arret2A = new TreeItem("Arrêt 2A");
+        this.arret1B = new TreeItem("Arrêt 1B");
+        this.arret2B = new TreeItem("Arrêt 2B");
+        
+        this.ligneA.getChildren().addAll(arret1A,arret2A);
+        this.ligneB.getChildren().addAll(arret1B,arret2B);
+        this.recap.getChildren().addAll(ligneA, ligneB);
+        
+        this.leftTopPane = new FlowPane(treeView);
+        this.leftBottomPane = new ScrollPane();
+        this.verticalSplitPane = new SplitPane();
+        this.verticalSplitPane.getItems().addAll(leftTopPane,leftBottomPane);
+        this.verticalSplitPane.setOrientation(Orientation.VERTICAL);
+        this.centerPane = new BorderPane();
+        this.centerPane.getStyleClass().add("centerPane");
+        
+        this.horizontalSplitPane = new SplitPane();
+        this.horizontalSplitPane.getItems().addAll(verticalSplitPane, centerPane);
+        this.setCenter(horizontalSplitPane);
+        
+        this.toolBar = new ToolBar();
+        this.reseau = new Button("Créer réseau");
+        this.ligne = new Button("Ajouter ligne");
+        this.arret = new Button("Ajouter arrêt");
+        this.tram = new Button("Ajouter tram");
+        this.selectionner = new Button("Sélectionner");
+        this.deplacer = new Button ("Déplacer");
+        this.retourarriere = new Button("Retour arrière");
+        this.retouravant = new Button("Retour avant");
+        this.zoom = new Button("Zoom");
+        this.dezoom = new Button ("Dezoom");
+        this.supprimer = new Button ("Supprimer");
+        this.toolBar.getItems().addAll(reseau,ligne,arret, tram,selectionner,deplacer,retourarriere,retouravant,zoom,dezoom,supprimer);
+        this.centerPane.setTop(toolBar);
+        
         this.getStylesheets().add("file:src/main/java/fr/idmont/candw/serpentdeferproject/Style.css");
-        
-        
-        
-        
-        
         
         
         
