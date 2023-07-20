@@ -61,6 +61,7 @@ public class InterfaceBody extends BorderPane{
     Button dezoom ;
     Button zoom ;
     Button supprimer ;
+    CreationZone zone;
     
     public InterfaceBody (Stage stage){
         
@@ -127,8 +128,11 @@ public class InterfaceBody extends BorderPane{
         this.toolBar.getItems().addAll(reseau,ligne,arret, tram,selectionner,deplacer,retourarriere,retouravant,zoom,dezoom,supprimer);
         this.centerPane.setTop(toolBar);
         
-        this.getStylesheets().add("file:src/main/java/fr/idmont/candw/serpentdeferproject/Style.css");
+        this.zone= new CreationZone(this);
+        this.centerPane.setCenter(zone);
         
+        this.getStylesheets().add("file:src/main/java/fr/idmont/candw/serpentdeferproject/Style.css");
+
         
         
         
@@ -168,6 +172,9 @@ public class InterfaceBody extends BorderPane{
             this.controller.quitter(stage);
         });
         
+        stage.setOnCloseRequest(e->{
+            this.controller.confirmation(e);
+        });
     }
 
     

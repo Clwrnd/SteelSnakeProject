@@ -7,6 +7,7 @@ package fr.idmont.candw.serpentdeferproject;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  *
@@ -16,7 +17,7 @@ public class Controller {
     InterfaceBody view;
     
     public Controller(InterfaceBody view){
-        view=this.view;
+        this.view=view;
     }
 
     void nouveau(ActionEvent e) {
@@ -46,6 +47,10 @@ public class Controller {
         stage.close();
     }
 
+    void confirmation(WindowEvent e) {
+        // e.consume();
+    }
+    
 
 
     
