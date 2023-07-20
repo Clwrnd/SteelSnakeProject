@@ -175,6 +175,10 @@ public class InterfaceBody extends BorderPane{
         stage.setOnCloseRequest(e->{
             this.controller.confirmation(e);
         });
+        
+        this.zone.setOnMouseClicked(e->{
+            this.controller.ClicInZone(e);
+        });
     }
 
     

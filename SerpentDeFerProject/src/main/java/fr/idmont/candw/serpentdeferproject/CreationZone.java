@@ -37,7 +37,7 @@ public class CreationZone extends Pane {
     private void drawCanvas() {
         GraphicsContext context = this.canvas.getGraphicsContext2D();
         context.clearRect(0, 0, this.canvas.getWidth(), this.canvas.getHeight());
-        context.setFill(Color.valueOf("#45f0f0"));
+        context.setFill(Color.valueOf("#DDDBDB"));
         context.fillRect(0, 0,this.canvas.getWidth(), this.canvas.getHeight());
     }
     
