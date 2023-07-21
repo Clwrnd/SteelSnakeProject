@@ -10,10 +10,14 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.ToolBar;
+import javafx.scene.control.Tooltip;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
@@ -32,10 +36,13 @@ public class InterfaceBody extends BorderPane{
     MenuItem ouvrir ;
     MenuItem enregistrer ;
     MenuItem enregistrersous ;
+    MenuItem imprimer ;
     MenuItem fermer ;
     MenuItem quitter;
     MenuItem aproposde ;
     MenuItem siteCTS ;
+    SeparatorMenuItem separateur1 ;
+    SeparatorMenuItem separateur2 ;
     BorderPane centerPane ;
     SplitPane horizontalSplitPane ;
     SplitPane verticalSplitPane ;
@@ -65,19 +72,26 @@ public class InterfaceBody extends BorderPane{
     
     public InterfaceBody (Stage stage){
         
+        //Création du MenuBar
         this.fichier = new Menu("Fichier");
         this.aide = new Menu("Aide");
         
-        this.nouveau = new MenuItem("Nouveau");
-        this.ouvrir = new MenuItem("Ouvrir");
-        this.enregistrer = new MenuItem("Enregistrer");
-        this.enregistrersous = new MenuItem("Enregistrer sous");
-        this.fermer = new MenuItem("Fermer");
-        this.quitter = new MenuItem("Quitter");
-        this.fichier.getItems().addAll(nouveau,ouvrir,enregistrer,enregistrersous,fermer,quitter);
+        this.nouveau = createMenuItem("Nouveau", "nouveau.png");
+        this.ouvrir = createMenuItem("Ouvrir", "ouvrir.png");
+        this.enregistrer = createMenuItem("Enregistrer", "enregistrer.png");
+        this.enregistrersous = createMenuItem("Enregistrer sous", "enregistrersous.png");
+        this.imprimer = createMenuItem("Imprimer", "imprimer.png");
+        this.fermer = createMenuItem("Fermer", "fermer.png");
+        this.quitter = createMenuItem("Quitter", "quitter.png");
+        this.fichier.getItems().addAll(nouveau,ouvrir,enregistrer,enregistrersous,imprimer,fermer,quitter);
         
-        this.aproposde = new MenuItem("A propos de...");
-        this.siteCTS = new MenuItem("Site CTS");
+        this.separateur1 = new SeparatorMenuItem();
+        this.separateur2 = new SeparatorMenuItem();
+        this.fichier.getItems().add(2, separateur1);
+        this.fichier.getItems().add(7, separateur2);
+        
+        this.aproposde = createMenuItem("A propose de...", "aproposde.png");
+        this.siteCTS = createMenuItem("Site CTS", "cts.png");
         this.aide.getItems().addAll(aproposde,siteCTS);
         
         this.menuBar = new MenuBar();
@@ -113,18 +127,23 @@ public class InterfaceBody extends BorderPane{
         this.horizontalSplitPane.getItems().addAll(verticalSplitPane, centerPane);
         this.setCenter(horizontalSplitPane);
         
+        
+        //this.horizontalSplitPane.setDividerPosition(0, 0.00);
+        //this.centerPane.minWidthProperty().bind(leftTopPane.widthProperty().multiply(0.26));
+        
+        //Création de la barre d'outils
         this.toolBar = new ToolBar();
-        this.reseau = new Button("Créer réseau");
-        this.ligne = new Button("Ajouter ligne");
-        this.arret = new Button("Ajouter arrêt");
-        this.tram = new Button("Ajouter tram");
-        this.selectionner = new Button("Sélectionner");
-        this.deplacer = new Button ("Déplacer");
-        this.retourarriere = new Button("Retour arrière");
-        this.retouravant = new Button("Retour avant");
-        this.zoom = new Button("Zoom");
-        this.dezoom = new Button ("Dezoom");
-        this.supprimer = new Button ("Supprimer");
+        this.reseau = createButton("Créer réseau", "reseau.png", "Créer un réseau");
+        this.ligne = createButton("Ajouter ligne", "ligne.png", "Ajouter une ligne");
+        this.arret = createButton("Ajouter arrêt", "arret.png", "Ajouter un arrêt");
+        this.tram = createButton("Ajouter tram", "tram.png", "Ajouter un tram");
+        this.selectionner = createButton("", "selectionner.png", "Sélectionner");
+        this.deplacer = createButton("", "deplacer.png", "Déplacer");
+        this.retourarriere = createButton("", "retourarriere.png", "Retour arrière");
+        this.retouravant = createButton("", "retouravant.png", "Retour avant");
+        this.zoom = createButton("", "zoom.png", "Zoom");
+        this.dezoom = createButton("", "dezoom.png", "Dézoom");
+        this.supprimer = createButton("", "supprimer.png", "Supprimer");
         this.toolBar.getItems().addAll(reseau,ligne,arret, tram,selectionner,deplacer,retourarriere,retouravant,zoom,dezoom,supprimer);
         this.centerPane.setTop(toolBar);
         
@@ -182,6 +201,31 @@ public class InterfaceBody extends BorderPane{
         
     }
 
+    //Méthodes
+        public MenuItem createMenuItem(String descriptionMI, String nomMI){
+            String pathMI = "file:src\\main\\java\\fr\\idmont\\candw\\serpentdeferproject\\Icônes\\";
+            Image imageMI = new Image(pathMI + nomMI);
+            ImageView iconeMI = new ImageView(imageMI);
+            iconeMI.setFitWidth(20);
+            iconeMI.setFitHeight(20); 
+            iconeMI.setPreserveRatio(true);
+            MenuItem menuItem = new MenuItem(descriptionMI, iconeMI);
+            return menuItem;
+    } 
     
+        public static Button createButton(String descrptionB, String nomB, String legendeB) {
+            Tooltip tooltip = new Tooltip(legendeB);
+            String cheminB = "file:src\\main\\java\\fr\\idmont\\candw\\serpentdeferproject\\Icônes\\";
+            Image imageB = new Image(cheminB + nomB);
+            ImageView iconeB = new ImageView(imageB);
+            iconeB.setFitHeight(25);
+            iconeB.setFitWidth(25);
+            iconeB.setPreserveRatio(true);
+            Button button = new Button(descrptionB, iconeB);
+            button.setMinSize(30, 30);
+            button.setTooltip(tooltip);
+
+            return button;
+    }
   
 }
