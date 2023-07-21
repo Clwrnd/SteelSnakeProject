@@ -179,6 +179,7 @@ public class InterfaceBody extends BorderPane{
         this.zone.setOnMouseClicked(e->{
             this.controller.ClicInZone(e);
         });
+        
     }
 
     

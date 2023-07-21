@@ -62,10 +62,17 @@ public class Controller {
         if(e.getButton()== MouseButton.SECONDARY){
             System.out.print("hey");
             ContextMenu contextmenu = new ContextMenu();
-            MenuItem creer = new MenuItem("Creer");
-            contextmenu.getItems().add(creer);
+            MenuItem creerA = new MenuItem("Créer un arrêt ");
+            MenuItem creerL = new MenuItem("Créer une ligne");
+            MenuItem copier = new MenuItem("Copier");
+            MenuItem coller = new MenuItem("Coller");
+            MenuItem supprimer = new MenuItem("Supprimer");
+            MenuItem deplacer = new MenuItem("Déplacer");
+            contextmenu.getItems().addAll(creerA,creerL,copier,coller,supprimer,deplacer);
             contextmenu.show(view,e.getScreenX(),e.getScreenY());
         }
+        
+        
     }
     
 
