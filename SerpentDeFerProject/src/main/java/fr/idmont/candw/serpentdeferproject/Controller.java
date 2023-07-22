@@ -6,9 +6,6 @@ package fr.idmont.candw.serpentdeferproject;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -21,6 +18,7 @@ import javafx.scene.input.*;
 public class Controller {
     
     InterfaceBody view;
+    Etat etat;
     
     public Controller(InterfaceBody view){
         this.view=view;

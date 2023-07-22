@@ -39,6 +39,8 @@ public class CreationZone extends Pane {
         context.clearRect(0, 0, this.canvas.getWidth(), this.canvas.getHeight());
         context.setFill(Color.valueOf("#DDDBDB"));
         context.fillRect(0, 0,this.canvas.getWidth(), this.canvas.getHeight());
+        context.setFill(Color.valueOf("#62DBDB"));
+        context.fillOval(10, 10, 10, 10);
     }
     
 }

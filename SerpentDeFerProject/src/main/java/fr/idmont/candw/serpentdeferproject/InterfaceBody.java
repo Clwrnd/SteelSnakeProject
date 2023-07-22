@@ -155,7 +155,7 @@ public class InterfaceBody extends BorderPane{
         this.arret = createButton("Ajouter arrêt", "arret.png", "Ajouter un arrêt");
         this.tram = createButton("Ajouter tram", "tram.png", "Ajouter un tram");
         this.selectionner = createButton("", "selectionner.png", "Sélectionner");
-        this.deplacer = createButton("", "deplacer.png", "Déplacer");
+        this.deplacer = createButton("", "deplacer.png", "Se déplacer");
         this.retourarriere = createButton("", "retourarriere.png", "Retour arrière");
         this.retouravant = createButton("", "retouravant.png", "Retour avant");
         this.zoom = createButton("", "zoom.png", "Zoom avant");
