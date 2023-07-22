@@ -6,21 +6,20 @@ package fr.idmont.candw.serpentdeferproject;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.geometry.Side;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
+import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.scene.input.*;
-import javafx.scene.layout.BorderPane;
 
 /**
  *
  * @author patrick
  */
 public class Controller {
+    
     InterfaceBody view;
     
     public Controller(InterfaceBody view){

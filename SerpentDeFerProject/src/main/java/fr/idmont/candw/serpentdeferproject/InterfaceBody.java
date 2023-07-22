@@ -158,9 +158,9 @@ public class InterfaceBody extends BorderPane{
         this.deplacer = createButton("", "deplacer.png", "Déplacer");
         this.retourarriere = createButton("", "retourarriere.png", "Retour arrière");
         this.retouravant = createButton("", "retouravant.png", "Retour avant");
-        this.zoom = createButton("", "zoom.png", "Zoom");
-        this.dezoom = createButton("", "dezoom.png", "Dézoom");
-        this.supprimer = createButton("", "supprimer.png", "Supprimer");
+        this.zoom = createButton("", "zoom.png", "Zoom avant");
+        this.dezoom = createButton("", "dezoom.png", "Zoom arrière");
+        this.supprimer = createButton("", "supprimer2.png", "Supprimer");
         this.toolBar.getItems().addAll(reseau,ligne,arret, tram,selectionner,deplacer,retourarriere,retouravant,zoom,dezoom,supprimer);
         this.centerPane.setTop(toolBar);
         
@@ -219,12 +219,12 @@ public class InterfaceBody extends BorderPane{
     }
 
     //Méthodes
-        public MenuItem createMenuItem(String descriptionMI, String nomMI){
+        public static MenuItem createMenuItem(String descriptionMI, String nomMI){
             String pathMI = "file:src\\main\\java\\fr\\idmont\\candw\\serpentdeferproject\\Icônes\\";
             Image imageMI = new Image(pathMI + nomMI);
             ImageView iconeMI = new ImageView(imageMI);
-            iconeMI.setFitWidth(20);
-            iconeMI.setFitHeight(20); 
+            iconeMI.setFitWidth(25);
+            iconeMI.setFitHeight(25); 
             iconeMI.setPreserveRatio(true);
             MenuItem menuItem = new MenuItem(descriptionMI, iconeMI);
             return menuItem;
@@ -235,11 +235,11 @@ public class InterfaceBody extends BorderPane{
             String cheminB = "file:src\\main\\java\\fr\\idmont\\candw\\serpentdeferproject\\Icônes\\";
             Image imageB = new Image(cheminB + nomB);
             ImageView iconeB = new ImageView(imageB);
-            iconeB.setFitHeight(25);
-            iconeB.setFitWidth(25);
+            iconeB.setFitHeight(35);
+            iconeB.setFitWidth(35);
             iconeB.setPreserveRatio(true);
             Button button = new Button(descrptionB, iconeB);
-            button.setMinSize(30, 30);
+            button.setMinSize(45, 45);
             button.setTooltip(tooltip);
 
             return button;
