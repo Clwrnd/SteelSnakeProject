@@ -6,21 +6,20 @@ package fr.idmont.candw.serpentdeferproject;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.geometry.Side;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
+import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.scene.input.*;
-import javafx.scene.layout.BorderPane;
 
 /**
  *
  * @author patrick
  */
 public class Controller {
+    
     InterfaceBody view;
     
     public Controller(InterfaceBody view){
@@ -62,13 +61,29 @@ public class Controller {
         if(e.getButton()== MouseButton.SECONDARY){
             System.out.print("hey");
             ContextMenu contextmenu = new ContextMenu();
-            MenuItem creerA = new MenuItem("Créer un arrêt ");
-            MenuItem creerL = new MenuItem("Créer une ligne");
-            MenuItem copier = new MenuItem("Copier");
-            MenuItem coller = new MenuItem("Coller");
-            MenuItem supprimer = new MenuItem("Supprimer");
-            MenuItem deplacer = new MenuItem("Déplacer");
-            contextmenu.getItems().addAll(creerA,creerL,copier,coller,supprimer,deplacer);
+            MenuItem selectionner = InterfaceBody.createMenuItem("Sélectionner", "selectionner.png");
+            MenuItem deplacer = InterfaceBody.createMenuItem("Déplacer", "deplacer.png");
+            MenuItem ajouterL = InterfaceBody.createMenuItem("Ajouter une ligne", "ligne.png");
+            MenuItem ajouterA = InterfaceBody.createMenuItem("Ajouter un arrêt", "arret.png");
+            MenuItem ajouterT = InterfaceBody.createMenuItem("Ajouter un tram", "tram.png");
+            MenuItem couper = InterfaceBody.createMenuItem("Couper", "couper.png");
+            MenuItem copier = InterfaceBody.createMenuItem("Copier", "copier.png");
+            MenuItem coller = InterfaceBody.createMenuItem("Coller", "coller.png");
+            MenuItem zoom = InterfaceBody.createMenuItem("Zoom avant", "zoom.png");
+            MenuItem dezoom = InterfaceBody.createMenuItem("Zoom arrière", "dezoom.png");
+            MenuItem supprimer = InterfaceBody.createMenuItem("Supprimer", "supprimer.png");
+            
+            contextmenu.getItems().addAll(selectionner,deplacer,ajouterL,ajouterA,ajouterT,couper,copier,coller,zoom,dezoom,supprimer);
+            
+            SeparatorMenuItem separateur1 = new SeparatorMenuItem();
+            SeparatorMenuItem separateur2 = new SeparatorMenuItem();
+            SeparatorMenuItem separateur3 = new SeparatorMenuItem();
+            SeparatorMenuItem separateur4 = new SeparatorMenuItem();
+            contextmenu.getItems().add(2, separateur1);
+            contextmenu.getItems().add(6, separateur2);
+            contextmenu.getItems().add(10, separateur3);
+            contextmenu.getItems().add(13, separateur4);
+            
             contextmenu.show(view,e.getScreenX(),e.getScreenY());
         }
         

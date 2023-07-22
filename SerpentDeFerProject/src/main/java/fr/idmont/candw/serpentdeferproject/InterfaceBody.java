@@ -141,8 +141,8 @@ public class InterfaceBody extends BorderPane{
         this.deplacer = createButton("", "deplacer.png", "Déplacer");
         this.retourarriere = createButton("", "retourarriere.png", "Retour arrière");
         this.retouravant = createButton("", "retouravant.png", "Retour avant");
-        this.zoom = createButton("", "zoom.png", "Zoom");
-        this.dezoom = createButton("", "dezoom.png", "Dézoom");
+        this.zoom = createButton("", "zoom.png", "Zoom avant");
+        this.dezoom = createButton("", "dezoom.png", "Zoom arrière");
         this.supprimer = createButton("", "supprimer.png", "Supprimer");
         this.toolBar.getItems().addAll(reseau,ligne,arret, tram,selectionner,deplacer,retourarriere,retouravant,zoom,dezoom,supprimer);
         this.centerPane.setTop(toolBar);
@@ -202,7 +202,7 @@ public class InterfaceBody extends BorderPane{
     }
 
     //Méthodes
-        public MenuItem createMenuItem(String descriptionMI, String nomMI){
+        public static MenuItem createMenuItem(String descriptionMI, String nomMI){
             String pathMI = "file:src\\main\\java\\fr\\idmont\\candw\\serpentdeferproject\\Icônes\\";
             Image imageMI = new Image(pathMI + nomMI);
             ImageView iconeMI = new ImageView(imageMI);
