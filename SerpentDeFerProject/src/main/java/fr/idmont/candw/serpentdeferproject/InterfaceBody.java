@@ -71,12 +71,21 @@ public class InterfaceBody extends BorderPane{
     Button supprimer ;
     CreationZone zone;
     ContextMenu contextmenu;
-    MenuItem creerA;
-    MenuItem creerL;
+    MenuItem selectionnerClic ;
+    MenuItem deplacerClic;
+    MenuItem ajouterL ;
+    MenuItem ajouterA ;
+    MenuItem ajouterT ;
+    MenuItem couper ;
     MenuItem copier;
     MenuItem coller;
+    MenuItem zoomClic ;
+    MenuItem dezoomClic ;
     MenuItem supprimerClic;
-    MenuItem deplacerClic; 
+    SeparatorMenuItem separateur3 ;
+    SeparatorMenuItem separateur4 ;
+    SeparatorMenuItem separateur5 ;
+    SeparatorMenuItem separateur6 ;
     
     public InterfaceBody (Stage stage){
         
@@ -136,14 +145,28 @@ public class InterfaceBody extends BorderPane{
         this.setCenter(horizontalSplitPane);
         
         this.contextmenu = new ContextMenu();
-        this.creerA = new MenuItem("Créer un arrêt ");
-        this.creerL = new MenuItem("Créer une ligne");
-        this.copier = new MenuItem("Copier");
-        this.coller = new MenuItem("Coller");
-        this.supprimerClic = new MenuItem("Supprimer");
-        this.deplacerClic = new MenuItem("Déplacer");
-        this.contextmenu.getItems().addAll(creerA,creerL,copier,coller,supprimerClic,deplacerClic);
+        this.selectionnerClic = createMenuItem("Sélectionner", "selectionner.png");
+        this.deplacerClic = createMenuItem("Déplacer", "deplacer.png");
+        this.ajouterL = createMenuItem("Ajouter une ligne", "ligne.png");
+        this.ajouterA = createMenuItem("Ajouter un arrêt", "arret.png");
+        this.ajouterT = createMenuItem("Ajouter un tram", "tram.png");
+        this.couper = createMenuItem("Couper", "couper.png");
+        this.copier = createMenuItem("Copier", "copier.png");
+        this.coller = createMenuItem("Coller", "coller.png");
+        this.zoomClic = createMenuItem("Zoom", "zoom.png");
+        this.dezoomClic = createMenuItem("Dezoom", "dezoom.png");
+        this.supprimerClic = createMenuItem("Supprimer", "supprimer.png");
+        this.contextmenu.getItems().addAll(selectionnerClic,deplacerClic,ajouterL,ajouterA,ajouterT,couper,copier,coller,zoomClic,dezoomClic,supprimerClic);
         this.contextmenu.setAutoHide(true);
+        
+        this.separateur3 = new SeparatorMenuItem();
+        this.separateur4 = new SeparatorMenuItem();
+        this.separateur5 = new SeparatorMenuItem();
+        this.separateur6 = new SeparatorMenuItem();
+        this.contextmenu.getItems().add(2, separateur3);
+        this.contextmenu.getItems().add(6, separateur4);
+        this.contextmenu.getItems().add(10, separateur5);
+        this.contextmenu.getItems().add(13, separateur6);
         
         //this.horizontalSplitPane.setDividerPosition(0, 0.00);
         //this.centerPane.minWidthProperty().bind(leftTopPane.widthProperty().multiply(0.26));
