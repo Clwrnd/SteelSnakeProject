@@ -6,6 +6,7 @@ package fr.idmont.candw.serpentdeferproject;
 
 import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -69,6 +70,13 @@ public class InterfaceBody extends BorderPane{
     Button zoom ;
     Button supprimer ;
     CreationZone zone;
+    ContextMenu contextmenu;
+    MenuItem creerA;
+    MenuItem creerL;
+    MenuItem copier;
+    MenuItem coller;
+    MenuItem supprimerClic;
+    MenuItem deplacerClic; 
     
     public InterfaceBody (Stage stage){
         
@@ -127,6 +135,15 @@ public class InterfaceBody extends BorderPane{
         this.horizontalSplitPane.getItems().addAll(verticalSplitPane, centerPane);
         this.setCenter(horizontalSplitPane);
         
+        this.contextmenu = new ContextMenu();
+        this.creerA = new MenuItem("Créer un arrêt ");
+        this.creerL = new MenuItem("Créer une ligne");
+        this.copier = new MenuItem("Copier");
+        this.coller = new MenuItem("Coller");
+        this.supprimerClic = new MenuItem("Supprimer");
+        this.deplacerClic = new MenuItem("Déplacer");
+        this.contextmenu.getItems().addAll(creerA,creerL,copier,coller,supprimerClic,deplacerClic);
+        this.contextmenu.setAutoHide(true);
         
         //this.horizontalSplitPane.setDividerPosition(0, 0.00);
         //this.centerPane.minWidthProperty().bind(leftTopPane.widthProperty().multiply(0.26));
@@ -198,7 +215,7 @@ public class InterfaceBody extends BorderPane{
         this.zone.setOnMouseClicked(e->{
             this.controller.ClicInZone(e);
         });
-        
+                
     }
 
     //Méthodes

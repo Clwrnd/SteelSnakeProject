@@ -60,20 +60,13 @@ public class Controller {
 
     void ClicInZone(MouseEvent e) {
         if(e.getButton()== MouseButton.SECONDARY){
-            System.out.print("hey");
-            ContextMenu contextmenu = new ContextMenu();
-            MenuItem creerA = new MenuItem("Créer un arrêt ");
-            MenuItem creerL = new MenuItem("Créer une ligne");
-            MenuItem copier = new MenuItem("Copier");
-            MenuItem coller = new MenuItem("Coller");
-            MenuItem supprimer = new MenuItem("Supprimer");
-            MenuItem deplacer = new MenuItem("Déplacer");
-            contextmenu.getItems().addAll(creerA,creerL,copier,coller,supprimer,deplacer);
-            contextmenu.show(view,e.getScreenX(),e.getScreenY());
+            this.view.contextmenu.show(view.getScene().getWindow(),e.getScreenX(),e.getScreenY());
         }
         
         
     }
+
+
     
 
 
