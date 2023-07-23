@@ -4,6 +4,7 @@
  */
 package fr.idmont.candw.serpentdeferproject;
 
+import static fr.idmont.candw.serpentdeferproject.Etat.SELECTION;
 import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContextMenu;
@@ -198,6 +199,7 @@ public class InterfaceBody extends BorderPane{
         
         
         this.controller= new Controller(this);
+        this.controller.etat= SELECTION;
         
         this.nouveau.setOnAction(e->{
             this.controller.nouveau(e);

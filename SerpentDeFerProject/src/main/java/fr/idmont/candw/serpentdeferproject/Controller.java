@@ -60,7 +60,6 @@ public class Controller {
             this.view.contextmenu.show(view.getScene().getWindow(),e.getScreenX(),e.getScreenY());
         }
         
-        
     }
 
 
