@@ -4,10 +4,17 @@
  */
 package Modele;
 
+import javafx.scene.paint.Color;
+
 /**
  *
  * @author cidmo
  */
 public class Line {
+    Stop start;
+    Stop end;
+    String name;
+    Color color;
+    
     
 }

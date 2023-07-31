@@ -5,9 +5,19 @@
 package fr.idmont.candw.serpentdeferproject;
 
 import static fr.idmont.candw.serpentdeferproject.Etat.SELECTION;
+import javafx.util.Duration;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContextMenu;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -22,6 +32,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -87,6 +98,7 @@ public class InterfaceBody extends BorderPane{
     SeparatorMenuItem separateur4 ;
     SeparatorMenuItem separateur5 ;
     SeparatorMenuItem separateur6 ;
+    Text dh;
     
     public InterfaceBody (Stage stage){
         
@@ -185,7 +197,8 @@ public class InterfaceBody extends BorderPane{
         this.zoom = createButton("", "zoom.png", "Zoom avant");
         this.dezoom = createButton("", "dezoom.png", "Zoom arrière");
         this.supprimer = createButton("", "supprimer2.png", "Supprimer");
-        this.toolBar.getItems().addAll(reseau,ligne,arret, tram,selectionner,deplacer,retourarriere,retouravant,zoom,dezoom,supprimer);
+        this.dh = new Text();
+        this.toolBar.getItems().addAll(reseau,ligne,arret, tram,selectionner,deplacer,retourarriere,retouravant,zoom,dezoom,supprimer,dh);
         this.centerPane.setTop(toolBar);
         
         this.zone= new CreationZone(this);
@@ -240,6 +253,8 @@ public class InterfaceBody extends BorderPane{
         this.zone.setOnMouseClicked(e->{
             this.controller.ClicInZone(e);
         });
+        
+        this.controller.heure(dh);
                 
     }
 

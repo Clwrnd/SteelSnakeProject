@@ -9,5 +9,7 @@ package Modele;
  * @author cidmo
  */
 public class Tram {
+    String modele;
+    
     
 }

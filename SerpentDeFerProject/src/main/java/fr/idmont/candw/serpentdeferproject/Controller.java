@@ -4,12 +4,21 @@
  */
 package fr.idmont.candw.serpentdeferproject;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.scene.input.*;
+import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 /**
  *
@@ -60,6 +69,20 @@ public class Controller {
             this.view.contextmenu.show(view.getScene().getWindow(),e.getScreenX(),e.getScreenY());
         }
         
+    }
+    
+    void heure(Text dh) {
+        Timeline tl= new Timeline(new KeyFrame(Duration.seconds(1), new EventHandler<ActionEvent>()
+            {
+                @Override
+                public void handle(ActionEvent event)
+                {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+                    dh.setText(formatter.format(LocalDateTime.now()));;
+                }
+            }));
+        tl.setCycleCount(Animation.INDEFINITE);
+        tl.play();
     }
 
 

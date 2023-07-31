@@ -9,5 +9,6 @@ package Modele;
  * @author cidmo
  */
 public class Event {
+    String nature;
     
 }

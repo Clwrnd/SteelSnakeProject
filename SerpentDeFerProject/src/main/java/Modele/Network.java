@@ -9,5 +9,9 @@ package Modele;
  * @author patrick
  */
 public class Network {
+    String name;
+    String localisation;
+    String company;
+    
     
 }
