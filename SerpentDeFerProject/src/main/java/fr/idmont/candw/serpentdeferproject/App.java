@@ -18,6 +18,7 @@ public class App extends Application {
     stage.getIcons().add(new Image("file:src\\main\\java\\fr\\idmont\\candw\\serpentdeferproject\\Icônes\\logo.png"));
     stage.setScene(scene);
     stage.setTitle("Serpent de Fer");
+    stage.setFullScreen(true);
     stage.show();  
     }
 

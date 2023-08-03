@@ -5,7 +5,6 @@
 package fr.idmont.candw.serpentdeferproject;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -34,6 +33,7 @@ public class Controller {
     }
 
     void nouveau(ActionEvent e) {
+        NewWindow.openNewWindow();
     }
 
     void fermer(ActionEvent e) {
@@ -62,6 +62,22 @@ public class Controller {
 
     void confirmation(WindowEvent e) {
         // e.consume();
+    }
+    
+    void reseau(ActionEvent e){
+        NewWindow.openReseauWindow();
+    }
+    
+    void ligne(ActionEvent e){
+        NewWindow.openLigneWindow();
+    }
+    
+    void arret(ActionEvent e){
+        NewWindow.openArretWindow();
+    }
+    
+    void tram(ActionEvent e){
+        NewWindow.openTramWindow();
     }
 
     void ClicInZone(MouseEvent e) {

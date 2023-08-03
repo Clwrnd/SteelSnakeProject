@@ -5,19 +5,9 @@
 package fr.idmont.candw.serpentdeferproject;
 
 import static fr.idmont.candw.serpentdeferproject.Etat.SELECTION;
-import javafx.util.Duration;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContextMenu;
-import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -244,6 +234,22 @@ public class InterfaceBody extends BorderPane{
         
         this.quitter.setOnAction(e->{
             this.controller.quitter(stage);
+        });
+        
+        this.reseau.setOnAction(e->{
+            this.controller.reseau(e);
+        });
+        
+        this.ligne.setOnAction(e->{
+            this.controller.ligne(e);
+        });
+        
+        this.arret.setOnAction(e->{
+            this.controller.arret(e);
+        });
+        
+        this.tram.setOnAction(e->{
+            this.controller.tram(e);
         });
         
         stage.setOnCloseRequest(e->{
