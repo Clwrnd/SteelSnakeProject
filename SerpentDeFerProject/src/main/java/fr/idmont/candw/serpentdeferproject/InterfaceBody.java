@@ -89,6 +89,7 @@ public class InterfaceBody extends BorderPane{
     SeparatorMenuItem separateur5 ;
     SeparatorMenuItem separateur6 ;
     Text dh;
+    NewWindow newwindows;
     
     public InterfaceBody (Stage stage){
         
@@ -203,6 +204,8 @@ public class InterfaceBody extends BorderPane{
         
         this.controller= new Controller(this);
         this.controller.etat= SELECTION;
+        
+        this.newwindows = new NewWindow();
         
         this.nouveau.setOnAction(e->{
             this.controller.nouveau(e);

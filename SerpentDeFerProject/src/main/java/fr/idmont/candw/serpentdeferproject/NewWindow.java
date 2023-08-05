@@ -4,7 +4,8 @@
  */
 package fr.idmont.candw.serpentdeferproject;
 
-import Modele.Line;
+import javafx.scene.shape.*;
+import java.util.List;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -21,6 +22,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 /**
  *
@@ -28,14 +30,24 @@ import javafx.stage.Stage;
  */
 public class NewWindow extends Stage {
     
-    public NewWindow(InterfaceBody body){
+    TextField textFieldNomReseau;   
+    Stage stageReseau ;
+            
+    public NewWindow(){
           
     }
     
     public static void openNewWindow(){
+         int compteurWindow ;
          
-         int compteurWindow = 1 ; 
-         compteurWindow ++ ; 
+         List<Window> open = Stage.getWindows();
+         if (open.size()!=1){
+            compteurWindow = open.size()+1 ;  
+         } else
+         {
+            compteurWindow = 2;
+         }
+         
          StackPane secondWindow = new StackPane();
          Stage stage = new Stage();
          secondWindow.getChildren().add(new InterfaceBody(stage));
@@ -52,8 +64,8 @@ public class NewWindow extends Stage {
          secondStage.show();
     }
     
-    public static void openReseauWindow(){
-        
+    public  void openReseauWindow(){
+             
         Image imageReseau = new Image("file:src\\main\\java\\fr\\idmont\\candw\\serpentdeferproject\\Icônes\\reseau.png");
         Circle cercleReseau = new Circle(200,200,75);
         cercleReseau.setStroke(Color.DARKGREY);
@@ -62,7 +74,7 @@ public class NewWindow extends Stage {
         
         Label labelReseau = new Label("Réseau");
         Label labelVille = new Label("Ville");
-        TextField textFieldNomReseau = new TextField();
+        this.textFieldNomReseau = new TextField();
         textFieldNomReseau.setPromptText("Entrez le nom de la ville");
         textFieldNomReseau.setFocusTraversable(false);
         
@@ -78,14 +90,22 @@ public class NewWindow extends Stage {
         StackPane reseauWindow = new StackPane(vBoxReseau);
         
         Scene sceneReseau = new Scene(reseauWindow, 450,500);
-        Stage stageReseau = new Stage();
-        stageReseau.setTitle("Créer un réseau");
-        stageReseau.getIcons().add(new Image("file:src\\main\\java\\fr\\idmont\\candw\\serpentdeferproject\\Icônes\\reseau.png"));
-        stageReseau.setScene(sceneReseau);
-        stageReseau.show();
+        this.stageReseau = new Stage();
+        this.stageReseau.setTitle("Créer un réseau");
+        this.stageReseau.getIcons().add(new Image("file:src\\main\\java\\fr\\idmont\\candw\\serpentdeferproject\\Icônes\\reseau.png"));
+        this.stageReseau.setScene(sceneReseau);
+        this.stageReseau.show();
+        
+        btnOkReseau.setOnAction((e)->{
+            this.stageReseau.close();
+        });
     }
     
     public static void openLigneWindow(){
+        
+        Rectangle rect = new Rectangle();
+        rect.setWidth(50);
+        rect.setHeight(5);
         
         Image imageLigne = new Image("file:src\\main\\java\\fr\\idmont\\candw\\serpentdeferproject\\Icônes\\ligne.png");
         Circle cercleLigne = new Circle(200,200,75);
@@ -113,9 +133,11 @@ public class NewWindow extends Stage {
         Separator separatorLigne = new Separator();
         Button btnAnnulLigne = new Button("Annuler");
         
+        HBox color = new HBox(colorPicker,rect);        
         VBox vBoxLigne = new VBox(cercleLigne,labelLigne,labelNomLigne,textFieldNomLigne,
-                labelCouleurLigne, colorPicker,labelDepartLigne,textFieldDepartLigne,
+                labelCouleurLigne, color,labelDepartLigne,textFieldDepartLigne,
                 labelArriveeLigne,textFieldArriveeLigne,btnOkLigne,separatorLigne,btnAnnulLigne);
+        rect.setTranslateY(10);
         vBoxLigne.setAlignment(Pos.CENTER);
         vBoxLigne.setMaxSize(400, 450);
         StackPane ligneWindow = new StackPane(vBoxLigne);
@@ -126,6 +148,10 @@ public class NewWindow extends Stage {
         stageLigne.getIcons().add(new Image("file:src\\main\\java\\fr\\idmont\\candw\\serpentdeferproject\\Icônes\\ligne.png"));
         stageLigne.setScene(sceneLigne);
         stageLigne.show();
+        
+        colorPicker.setOnAction((e)->{
+            rect.setFill(colorPicker.getValue());
+        });
     }
     
     public static void openArretWindow(){

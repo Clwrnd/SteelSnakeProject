@@ -65,7 +65,7 @@ public class Controller {
     }
     
     void reseau(ActionEvent e){
-        NewWindow.openReseauWindow();
+        this.view.newwindows.openReseauWindow();       
     }
     
     void ligne(ActionEvent e){
