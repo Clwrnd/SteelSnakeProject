@@ -69,11 +69,11 @@ public class Controller {
     }
     
     void ligne(ActionEvent e){
-        NewWindow.openLigneWindow();
+        this.view.newwindows.openLigneWindow();
     }
     
     void arret(ActionEvent e){
-        NewWindow.openArretWindow();
+        this.view.newwindows.openArretWindow();
     }
     
     void tram(ActionEvent e){

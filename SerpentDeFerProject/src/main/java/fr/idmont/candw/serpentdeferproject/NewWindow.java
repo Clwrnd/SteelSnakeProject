@@ -30,8 +30,12 @@ import javafx.stage.Window;
  */
 public class NewWindow extends Stage {
     
-    TextField textFieldNomReseau;   
+    TextField textFieldNomReseau;
+    TextField textFieldNomLigne ;
+    TextField textFieldNomArret ;
     Stage stageReseau ;
+    Stage stageLigne ;
+    Stage stageArret ;
             
     public NewWindow(){
           
@@ -101,7 +105,7 @@ public class NewWindow extends Stage {
         });
     }
     
-    public static void openLigneWindow(){
+    public void openLigneWindow(){
         
         Rectangle rect = new Rectangle();
         rect.setWidth(50);
@@ -115,7 +119,7 @@ public class NewWindow extends Stage {
         
         Label labelLigne = new Label("Ligne");
         Label labelNomLigne = new Label("Nom de la ligne");
-        TextField textFieldNomLigne = new TextField();
+        this.textFieldNomLigne = new TextField();
         textFieldNomLigne.setPromptText("Entrez le nom de la ligne (A, B, C,... ou 1,2,3,...)");
         textFieldNomLigne.setFocusTraversable(false);
         Label labelCouleurLigne = new Label("Couleur de la ligne");
@@ -143,7 +147,7 @@ public class NewWindow extends Stage {
         StackPane ligneWindow = new StackPane(vBoxLigne);
         
         Scene sceneLigne = new Scene(ligneWindow, 450,500);
-        Stage stageLigne = new Stage();
+        this.stageLigne = new Stage();
         stageLigne.setTitle("Ajouter une ligne");
         stageLigne.getIcons().add(new Image("file:src\\main\\java\\fr\\idmont\\candw\\serpentdeferproject\\Icônes\\ligne.png"));
         stageLigne.setScene(sceneLigne);
@@ -154,7 +158,7 @@ public class NewWindow extends Stage {
         });
     }
     
-    public static void openArretWindow(){
+    public void openArretWindow(){
         
         Image imageArret = new Image("file:src\\main\\java\\fr\\idmont\\candw\\serpentdeferproject\\Icônes\\arret.png");
         Circle cercleArret = new Circle(200,200,75);
@@ -164,7 +168,7 @@ public class NewWindow extends Stage {
         
         Label labelArret = new Label("Arrêt");
         Label labelNomArret = new Label("Nom de l'arrêt");
-        TextField textFieldNomArret = new TextField();
+        this.textFieldNomArret = new TextField();
         textFieldNomArret.setPromptText("Entrez le nom de l'arrêt");
         textFieldNomArret.setFocusTraversable(false);
         
@@ -179,7 +183,7 @@ public class NewWindow extends Stage {
         StackPane arretWindow = new StackPane(vBoxArret);
         
         Scene sceneArret = new Scene(arretWindow, 450,500);
-        Stage stageArret = new Stage();
+        this.stageArret = new Stage();
         stageArret.setTitle("Ajouter un arrêt");
         stageArret.getIcons().add(new Image("file:src\\main\\java\\fr\\idmont\\candw\\serpentdeferproject\\Icônes\\arret.png"));
         stageArret.setScene(sceneArret);
