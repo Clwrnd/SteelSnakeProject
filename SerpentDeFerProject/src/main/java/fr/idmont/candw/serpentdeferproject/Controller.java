@@ -64,8 +64,8 @@ public class Controller {
         // e.consume();
     }
     
-    void reseau(ActionEvent e){
-        this.view.newwindows.openReseauWindow();       
+    void reseau(ActionEvent e,Stage stage){
+        this.view.newwindows.openReseauWindow(stage);
     }
     
     void ligne(ActionEvent e){

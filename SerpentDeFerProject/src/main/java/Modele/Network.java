@@ -13,5 +13,10 @@ public class Network {
     String localisation;
     String company;
     
+    public Network(String name,String local,String company){
+        this.name=name;
+        this.localisation=local;
+        this.company=company;
+    }
     
 }

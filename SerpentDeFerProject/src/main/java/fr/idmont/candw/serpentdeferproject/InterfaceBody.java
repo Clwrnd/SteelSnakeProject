@@ -88,7 +88,7 @@ public class InterfaceBody extends BorderPane{
     SeparatorMenuItem separateur4 ;
     SeparatorMenuItem separateur5 ;
     SeparatorMenuItem separateur6 ;
-    Text dh;
+    Text dateHeure;
     NewWindow newwindows;
     
     public InterfaceBody (Stage stage){
@@ -188,8 +188,8 @@ public class InterfaceBody extends BorderPane{
         this.zoom = createButton("", "zoom.png", "Zoom avant");
         this.dezoom = createButton("", "dezoom.png", "Zoom arrière");
         this.supprimer = createButton("", "supprimer2.png", "Supprimer");
-        this.dh = new Text();
-        this.toolBar.getItems().addAll(reseau,ligne,arret, tram,selectionner,deplacer,retourarriere,retouravant,zoom,dezoom,supprimer,dh);
+        this.dateHeure = new Text();
+        this.toolBar.getItems().addAll(reseau,ligne,arret, tram,selectionner,deplacer,retourarriere,retouravant,zoom,dezoom,supprimer,dateHeure);
         this.centerPane.setTop(toolBar);
         
         this.zone= new CreationZone(this);
@@ -240,7 +240,7 @@ public class InterfaceBody extends BorderPane{
         });
         
         this.reseau.setOnAction(e->{
-            this.controller.reseau(e);
+            this.controller.reseau(e,stage);
         });
         
         this.ligne.setOnAction(e->{
@@ -263,7 +263,7 @@ public class InterfaceBody extends BorderPane{
             this.controller.ClicInZone(e);
         });
         
-        this.controller.heure(dh);
+        this.controller.heure(dateHeure);
                 
     }
 

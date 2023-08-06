@@ -21,6 +21,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 
@@ -68,7 +69,7 @@ public class NewWindow extends Stage {
          secondStage.show();
     }
     
-    public  void openReseauWindow(){
+    public  void openReseauWindow(Stage stage){
              
         Image imageReseau = new Image("file:src\\main\\java\\fr\\idmont\\candw\\serpentdeferproject\\Icônes\\reseau.png");
         Circle cercleReseau = new Circle(200,200,75);
@@ -98,10 +99,13 @@ public class NewWindow extends Stage {
         this.stageReseau.setTitle("Créer un réseau");
         this.stageReseau.getIcons().add(new Image("file:src\\main\\java\\fr\\idmont\\candw\\serpentdeferproject\\Icônes\\reseau.png"));
         this.stageReseau.setScene(sceneReseau);
+        this.stageReseau.initModality(Modality.APPLICATION_MODAL);
         this.stageReseau.show();
         
         btnOkReseau.setOnAction((e)->{
-            this.stageReseau.close();
+            
+            
+            this.stageReseau.close();          
         });
     }
     
@@ -151,6 +155,7 @@ public class NewWindow extends Stage {
         stageLigne.setTitle("Ajouter une ligne");
         stageLigne.getIcons().add(new Image("file:src\\main\\java\\fr\\idmont\\candw\\serpentdeferproject\\Icônes\\ligne.png"));
         stageLigne.setScene(sceneLigne);
+        stageLigne.initModality(Modality.APPLICATION_MODAL);
         stageLigne.show();
         
         colorPicker.setOnAction((e)->{
@@ -187,6 +192,7 @@ public class NewWindow extends Stage {
         stageArret.setTitle("Ajouter un arrêt");
         stageArret.getIcons().add(new Image("file:src\\main\\java\\fr\\idmont\\candw\\serpentdeferproject\\Icônes\\arret.png"));
         stageArret.setScene(sceneArret);
+        stageArret.initModality(Modality.APPLICATION_MODAL);
         stageArret.show();
         
     }
