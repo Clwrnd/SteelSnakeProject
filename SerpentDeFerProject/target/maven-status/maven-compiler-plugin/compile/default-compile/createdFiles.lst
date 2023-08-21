@@ -6,6 +6,7 @@ fr\idmont\candw\serpentdeferproject\Controller$2.class
 fr\idmont\candw\serpentdeferproject\Etat.class
 fr\idmont\candw\serpentdeferproject\NewWindow.class
 Modele\Line.class
+fr\idmont\candw\serpentdeferproject\DataManagement.class
 Modele\Network.class
 fr\idmont\candw\serpentdeferproject\InterfaceBody.class
 module-info.class

@@ -90,6 +90,7 @@ public class InterfaceBody extends BorderPane{
     SeparatorMenuItem separateur6 ;
     Text dateHeure;
     NewWindow newwindows;
+    DataManagement Data;
     
     public InterfaceBody (Stage stage){
         
@@ -201,7 +202,7 @@ public class InterfaceBody extends BorderPane{
         
         
         
-        
+        this.Data = new DataManagement();
         this.controller= new Controller(this);
         this.controller.etat= SELECTION;
         

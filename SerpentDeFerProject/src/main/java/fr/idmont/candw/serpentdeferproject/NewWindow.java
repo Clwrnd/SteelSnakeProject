@@ -37,6 +37,7 @@ public class NewWindow extends Stage {
     Stage stageReseau ;
     Stage stageLigne ;
     Stage stageArret ;
+    Button btnOkLigne;
             
     public NewWindow(){
           
@@ -102,9 +103,7 @@ public class NewWindow extends Stage {
         this.stageReseau.initModality(Modality.APPLICATION_MODAL);
         this.stageReseau.show();
         
-        btnOkReseau.setOnAction((e)->{
-            
-            
+        btnOkReseau.setOnAction((e)->{            
             this.stageReseau.close();          
         });
     }
@@ -137,7 +136,7 @@ public class NewWindow extends Stage {
         textFieldArriveeLigne.setPromptText("Entrez le nom du terminus 2");
         textFieldArriveeLigne.setFocusTraversable(false);
         
-        Button btnOkLigne = new Button("OK");
+        this.btnOkLigne = new Button("OK");
         Separator separatorLigne = new Separator();
         Button btnAnnulLigne = new Button("Annuler");
         

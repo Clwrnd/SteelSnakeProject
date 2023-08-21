@@ -12,6 +12,7 @@ import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.TreeItem;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -70,6 +71,11 @@ public class Controller {
     
     void ligne(ActionEvent e){
         this.view.newwindows.openLigneWindow();
+        this.view.newwindows.btnOkLigne.setOnAction((ev)->{
+            this.view.newwindows.stageLigne.close();
+            this.view.recap.getChildren().add(new TreeItem(this.view.newwindows.textFieldNomLigne.getText()));
+        });
+
     }
     
     void arret(ActionEvent e){

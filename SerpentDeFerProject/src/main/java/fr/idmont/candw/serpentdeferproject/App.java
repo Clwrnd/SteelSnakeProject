@@ -14,7 +14,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         
-    Scene scene = new Scene(new InterfaceBody(stage), 1900, 1000);
+    Scene scene = new Scene(new InterfaceBody(stage), 700, 600);
     stage.getIcons().add(new Image("file:src\\main\\java\\fr\\idmont\\candw\\serpentdeferproject\\Icônes\\logo.png"));
     stage.setScene(scene);
     stage.setTitle("Serpent de Fer");
