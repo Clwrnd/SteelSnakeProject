@@ -1,6 +1,6 @@
 # SteelSnakeProject
 
-(Projet en Pause)
+(Projet en arreté depuis Juillet 2023)
 
 Objectifs : Réaliser une application permettant la création et la gestion d'un réseau de tram. 
 
